@@ -3,6 +3,7 @@ package com.ilya.MeetingMap.Mine_menu
 
 
 import MapMarker_DATA
+import Postquashen
 import android.Manifest
 import android.content.Intent
 
@@ -59,14 +60,13 @@ import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.gms.maps.model.RoundCap
 import com.ilya.MeetingMap.Map.DataModel.Friends_type
+import com.ilya.myspb.android.MediaActivity
 import com.ilya.myspb.android.R
 import com.ilya.nordmap.Map.DataModel.AIanswer
 import com.ilya.nordmap.Map.DataModel.extractRussianLettersWithSpaces
 
 import com.ilya.nordmap.Map.Openmarkers_map
 import com.ilya.nordmap.Media.DataModel.Formattoken
-import com.ilya.nordmap.Media.MediaActivity
-import com.ilya.nordmap.Media.ServerAPI.Postquashen
 import com.ilya.nordmap.Media.ServerAPI.sendNotificationToCloud
 
 
@@ -79,7 +79,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-import showAddMarkerDialog
+
 
 import java.io.IOException
 
