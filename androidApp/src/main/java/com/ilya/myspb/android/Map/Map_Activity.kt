@@ -60,7 +60,8 @@ import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.android.gms.maps.model.RoundCap
 import com.ilya.MeetingMap.Map.DataModel.Friends_type
-import com.ilya.myspb.android.MediaActivity
+import com.ilya.myspb.android.Media.MediaActivity
+
 import com.ilya.myspb.android.R
 import com.ilya.nordmap.Map.DataModel.AIanswer
 import com.ilya.nordmap.Map.DataModel.extractRussianLettersWithSpaces

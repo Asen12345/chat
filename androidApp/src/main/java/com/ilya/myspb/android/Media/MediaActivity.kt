@@ -1,4 +1,5 @@
-package com.ilya.myspb.android
+package com.ilya.myspb.android.Media
+
 
 import android.os.Bundle
 import android.util.Log
