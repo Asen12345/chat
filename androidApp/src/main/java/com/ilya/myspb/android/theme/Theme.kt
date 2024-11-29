@@ -34,6 +34,25 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
+fun ComposeGoogleSignInCleanArchitectureTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        darkColorScheme()
+    } else {
+        lightColorScheme()
+    }
+
+    MaterialTheme(
+        colorScheme = MaterialTheme.colorScheme,
+
+
+        content = content
+    )
+}
+
+@Composable
 fun NordMapTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+

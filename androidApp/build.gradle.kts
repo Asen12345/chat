@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -42,6 +43,8 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.navigation.compose)
     debugImplementation(libs.compose.ui.tooling)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -132,6 +135,10 @@ dependencies {
 
 
 
-
+    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1")) // Firebase Bill of Materials (BOM)
+    implementation("com.google.firebase:firebase-auth-ktx") // Firebase Authentication (Kotlin)
+    implementation("com.google.android.gms:play-services-auth:21.2.0") // Google Play Services Auth
+    implementation("androidx.compose.material3:material3:1.2.1") // Замените на актуальную версию
 
 }

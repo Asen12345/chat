@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "297318835182",
+    "project_id": "myspbmap",
+    "storage_bucket": "myspbmap.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297318835182:android:f8effac2165a06099d24ff",
+        "android_client_info": {
+          "package_name": "com.ilya.myspb.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "297318835182-pej6s4nh0g7d8h6m18fkv14p5f1rt8on.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ilya.myspb.android",
+            "certificate_hash": "62c5d744bdff7f33bbf6629b9c09da8ea4a67518"
+          }
+        },
+        {
+          "client_id": "297318835182-bks42dlr8c9eh0hj9canjlhm0880aa10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB925yWMFq2GC0rXbrH6fyesdf2bF2WHMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "297318835182-bks42dlr8c9eh0hj9canjlhm0880aa10.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
