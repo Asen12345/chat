@@ -1,0 +1,185 @@
+.chat {
+    background-color: $background-main-color;
+    width: 100vw;
+    height: 100vh;
+    padding: 0 20px;
+
+    &.white {
+        background-color: $background-white;
+        padding: 0;
+    }
+
+    .chat-header {
+        height: 20vh;
+
+        &.window {
+            height: 10vh;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+            button {
+                border: 1px solid #dedede;
+            }
+
+            .chat-header__text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: calc(100% - 96px);
+
+                h4 {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                h5 {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &.list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .chat-header__text {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                h1 {
+                    font-weight: 500;
+                    font-size: 18px;
+                    color: #3C92C3;
+                }
+
+                .chat-subtitle {
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+            }
+
+            .chat-header__img {
+                opacity: .6;
+            }
+        }
+    }
+
+    .chat-list {
+        height: 70vh;
+    }
+
+    .chat-window {
+        height: 80vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        &>div {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-message {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            &__text {
+                border: 1px solid #dedede;
+                max-width: 100%;
+            }
+
+            &__date {
+                color: #303030;
+                font-size: 12px;
+                opacity: .4;
+            }
+
+            &.user {
+                align-items: flex-end;
+
+                .chat-message__text {
+                    background-color: $background-second-color;
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                }
+            }
+
+            &.assistent {
+                align-items: flex-start;
+
+                .chat-message__text {
+                    background-color: $background-main-color;
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .chat-list {
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .item {
+                width: 100%;
+                padding: 5px 0;
+                text-align: center;
+                background-color: $background-white;
+                border: 2px solid #1d93ab;
+                border-radius: 10px;
+                text-transform: uppercase;
+                color: #3C92C3;
+            }
+        }
+    }
+
+    .chat-footer {
+        height: 10vh;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+
+        &.window {
+            padding: 0 20px;
+        }
+
+        button {
+            max-width: 200px;
+            font-size: 14px;
+            border-radius: 10px;
+            height: 40px;
+        }
+    }
+
+
+    .category-slider {
+        position: fixed;
+        z-index: 9999;
+        max-width: calc(100vw - 16px);
+
+        .category-item {
+            display: flex !important;
+            align-items: center;
+            height: 40px;
+
+            button {
+                height: 30px;
+                width: 90%;
+                margin-left: 5%;
+            }
+        }
+    }
+}

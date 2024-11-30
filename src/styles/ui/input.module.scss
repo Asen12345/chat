@@ -1,0 +1,61 @@
+@mixin input {
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.input-item {
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+        line-height: 20px;
+
+        span {
+            color: #EC1D24;
+            margin-left: 3px;
+        }
+    }
+
+    &__content {
+        width: 100%;
+        position: relative;
+
+        input {
+            @include input;
+
+            &.password {
+                padding: 10px 35px 10px 10px;
+            }
+
+            &.disabled {
+                background-color: #f0f0f0;
+                cursor: not-allowed;
+                border-color: #d6d6d6;
+            }
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 16px;
+            right: 10px;
+            cursor: pointer;
+        }
+    }
+}
