@@ -11,6 +11,15 @@
 		FA90AEE92CFB0C4A0018B32D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AEE82CFB0C4A0018B32D /* ContentView.swift */; };
 		FA90AEEB2CFB0C4C0018B32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA90AEEA2CFB0C4C0018B32D /* Assets.xcassets */; };
 		FA90AEEE2CFB0C4C0018B32D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA90AEED2CFB0C4C0018B32D /* Preview Assets.xcassets */; };
+		FA90AEF82CFB0D680018B32D /* AuthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AEF72CFB0D680018B32D /* AuthScreen.swift */; };
+		FA90AEFA2CFB0D7B0018B32D /* InfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AEF92CFB0D7B0018B32D /* InfoScreen.swift */; };
+		FA90AEFC2CFB0D960018B32D /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AEFB2CFB0D960018B32D /* MainScreen.swift */; };
+		FA90AEFE2CFB0DAB0018B32D /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AEFD2CFB0DAB0018B32D /* ChatScreen.swift */; };
+		FA90AF022CFB28A00018B32D /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AF012CFB28A00018B32D /* RoundedButton.swift */; };
+		FA90AF042CFB47C40018B32D /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AF032CFB47C40018B32D /* ChatViewModel.swift */; };
+		FA90AF072CFB58E40018B32D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AF062CFB58E40018B32D /* UserRepository.swift */; };
+		FA90AF092CFB5B160018B32D /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AF082CFB5B160018B32D /* MainScreenViewModel.swift */; };
+		FA90AF0C2CFB5E070018B32D /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA90AF0B2CFB5E070018B32D /* UserType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,15 @@
 		FA90AEE82CFB0C4A0018B32D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA90AEEA2CFB0C4C0018B32D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA90AEED2CFB0C4C0018B32D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FA90AEF72CFB0D680018B32D /* AuthScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthScreen.swift; sourceTree = "<group>"; };
+		FA90AEF92CFB0D7B0018B32D /* InfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScreen.swift; sourceTree = "<group>"; };
+		FA90AEFB2CFB0D960018B32D /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		FA90AEFD2CFB0DAB0018B32D /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		FA90AF012CFB28A00018B32D /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		FA90AF032CFB47C40018B32D /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		FA90AF062CFB58E40018B32D /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		FA90AF082CFB5B160018B32D /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
+		FA90AF0B2CFB5E070018B32D /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,11 @@
 		FA90AEE52CFB0C4A0018B32D /* SpbAIHelper */ = {
 			isa = PBXGroup;
 			children = (
+				FA90AF0A2CFB5DBD0018B32D /* Presentation */,
+				FA90AF052CFB58C40018B32D /* Data */,
+				FA90AEF62CFB0C8E0018B32D /* Components */,
+				FA90AEF52CFB0C7F0018B32D /* Utils */,
+				FA90AEF42CFB0C740018B32D /* Screens */,
 				FA90AEE62CFB0C4A0018B32D /* SpbAIHelperApp.swift */,
 				FA90AEE82CFB0C4A0018B32D /* ContentView.swift */,
 				FA90AEEA2CFB0C4C0018B32D /* Assets.xcassets */,
@@ -65,6 +88,50 @@
 				FA90AEED2CFB0C4C0018B32D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA90AEF42CFB0C740018B32D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FA90AEF72CFB0D680018B32D /* AuthScreen.swift */,
+				FA90AEF92CFB0D7B0018B32D /* InfoScreen.swift */,
+				FA90AEFB2CFB0D960018B32D /* MainScreen.swift */,
+				FA90AEFD2CFB0DAB0018B32D /* ChatScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FA90AEF52CFB0C7F0018B32D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA90AF0B2CFB5E070018B32D /* UserType.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FA90AEF62CFB0C8E0018B32D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA90AF012CFB28A00018B32D /* RoundedButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FA90AF052CFB58C40018B32D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA90AF062CFB58E40018B32D /* UserRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FA90AF0A2CFB5DBD0018B32D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FA90AF082CFB5B160018B32D /* MainScreenViewModel.swift */,
+				FA90AF032CFB47C40018B32D /* ChatViewModel.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +205,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA90AEE92CFB0C4A0018B32D /* ContentView.swift in Sources */,
+				FA90AF0C2CFB5E070018B32D /* UserType.swift in Sources */,
+				FA90AF092CFB5B160018B32D /* MainScreenViewModel.swift in Sources */,
+				FA90AEFE2CFB0DAB0018B32D /* ChatScreen.swift in Sources */,
+				FA90AF072CFB58E40018B32D /* UserRepository.swift in Sources */,
+				FA90AF042CFB47C40018B32D /* ChatViewModel.swift in Sources */,
 				FA90AEE72CFB0C4A0018B32D /* SpbAIHelperApp.swift in Sources */,
+				FA90AEFC2CFB0D960018B32D /* MainScreen.swift in Sources */,
+				FA90AF022CFB28A00018B32D /* RoundedButton.swift in Sources */,
+				FA90AEF82CFB0D680018B32D /* AuthScreen.swift in Sources */,
+				FA90AEFA2CFB0D7B0018B32D /* InfoScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
