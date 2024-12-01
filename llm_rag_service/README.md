@@ -19,6 +19,7 @@
 ## 🛠 Технический Стек
 - LangChain
 - LogisticRegression
+- Ntlk
 - Chroma DB
 - FastAPI
 - Pandas
