@@ -4,7 +4,11 @@ import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';
 import { useChatStore } from '../../store/chatStore';
 
-const Chat: React.FC = () => {
+interface ChatProps {
+    goBack: () => void;
+}
+
+const Chat: React.FC<ChatProps> = ({ goBack }) => {
     const [selectedChatId, setSelectedChatId] = useState<string>('');
     const uid = useChatStore((state) => state.uid);
     const initializeUid = useChatStore((state) => state.initializeUid);
@@ -23,7 +27,7 @@ const Chat: React.FC = () => {
     return (
         selectedChatId
             ? <ChatWindow uid={uid} chatId={selectedChatId} openChatList={() => setSelectedChatId('')} />
-            : uid && <ChatList uid={uid} onSelectChat={setSelectedChatId} />
+            : uid && <ChatList uid={uid} onSelectChat={setSelectedChatId} goBack={goBack} />
     )
 };
 

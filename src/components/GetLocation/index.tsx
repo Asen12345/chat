@@ -4,8 +4,9 @@ import MapComponent from "./Map"
 import AddressForm from "./AddressForm"
 import RightArrowIcon from "@/icons/right-arrow.svg"
 import Button from "@/components-ui/button"
+import styles from "@/styles/map.module.scss"
 
-const GetLocation: React.FC = () => {
+const GetLocation: React.FC<{ goToChat: () => void }> = ({ goToChat }) => {
     const [address, setAddress] = useState<string>('');
 
     const handleSearch = (searchAddress: string) => {
@@ -14,8 +15,8 @@ const GetLocation: React.FC = () => {
 
     return (
         <div>
-            <div className="chat-page">
-                <Button icon={RightArrowIcon} />
+            <div className={styles["chat-page"]}>
+                <Button icon={RightArrowIcon} onClick={() => goToChat()} />
             </div>
             <AddressForm onSearch={handleSearch} />
             <MapComponent address={address} />

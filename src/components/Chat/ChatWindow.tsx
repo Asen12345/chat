@@ -6,7 +6,6 @@ import Button from "@/components-ui/button"
 import SendIcon from "@/icons/send.svg"
 import BackIcon from "@/icons/back.svg"
 import Scrollbar from "react-scrollbars-custom";
-import Slider from "react-slick";
 import TipsIcon from "@/icons/tips.svg"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,7 +18,7 @@ interface ChatWindowProps {
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ uid, chatId, openChatList }) => {
-    const { messages, fetchMessages, sendMessage } = useChatStore();
+    const { messages, fetchMessages, sendMessage, userAddress, chats } = useChatStore();
     const [newMessage, setNewMessage] = useState<string>('');
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
 
@@ -29,14 +28,21 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ uid, chatId, openChatList }) =>
 
     const handleSend = () => {
         if (newMessage.trim() === '') return;
+
+        // Найдите чат по chatId для получения названия чата
+        const currentChat = chats.find(chat => chat.chatId === chatId);
+        const chatName = currentChat ? currentChat.chatName : 'Неизвестный чат';
+
         const message = {
             username: 'User',
             message: newMessage,
             gptResponse: '',
+            character: `Я — помощник, который всегда готов найти для тебя нужную информацию, живу по адресу ${userAddress}! Я стараюсь быть максимально точным и вежливым, помогая находить ресурсы, адреса и контактные данные, включая номера телефонов, исходя из твоих запросов. Я быстро реагирую и всегда предоставляю полную информацию, которая может быть полезна, в том числе уточняю, как найти ближайшие к тебе места. Если ты ищешь конкретные адреса или телефоны, просто скажи, и я постараюсь дать все необходимые данные, учитывая твоё местоположение. Моя цель — предоставить тебе точную информацию, будь то адрес или номер телефона, чтобы ты мог легко найти нужное.`,
+            model: "GigaChat",
             timestamp: new Date().toISOString(),
         };
-        sendMessage(uid, chatId, message);
         setNewMessage('');
+        sendMessage(uid, chatId, message);
     };
 
     const settings = {
@@ -48,7 +54,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ uid, chatId, openChatList }) =>
 
     const handleCategoryClick = (index: number) => {
         if (selectedCategory === index) {
-            setSelectedCategory(null); 
+            setSelectedCategory(null);
         } else {
             setSelectedCategory(index);
         }
@@ -68,21 +74,6 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ uid, chatId, openChatList }) =>
                 </div>
             </div>
             <Scrollbar style={{ height: "80vh" }}>
-                <div className={styles["category-slider"]}>
-                    <Slider {...settings}>
-                        {[...Array(9)].map((_, index) => (
-                            <div key={index} className={styles["category-item"]}>
-                                <Button
-                                    icon={TipsIcon}
-                                    color='#3C92C3'
-                                    value='Подсказки'
-                                    backgroundColor={selectedCategory === index ? '#E0FFFF' : undefined}
-                                    onClick={() => handleCategoryClick(index)}
-                                />
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
                 <div className={styles['chat-window']}>
                     {messages[chatId]?.map((msg, index) => (
                         <div key={index}>

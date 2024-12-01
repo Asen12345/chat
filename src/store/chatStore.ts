@@ -11,7 +11,7 @@ interface Message {
 
 interface Chat {
     chatId: string;
-    // Удаляем chatName, заменим на номер чата
+    chatName: string;
 }
 
 interface ChatState {
@@ -21,10 +21,11 @@ interface ChatState {
     userAddress: string; // Новое поле для хранения адреса пользователя
     initializeUid: () => void;
     fetchChats: (uid: string) => Promise<void>;
-    createChat: (uid: string, chatId: string, chatName: string) => Promise<void>;
+    createChat: (uid: string, chatId: string, categories: string, model: string) => Promise<void>;
     fetchMessages: (uid: string, chatId: string) => Promise<void>;
     sendMessage: (uid: string, chatId: string, message: Message) => Promise<void>;
     setUserAddress: (address: string) => void; // Новый метод для установки адреса
+    deleteChat: (uid: string, chatId: string) => Promise<void>;
 }
 
 export const useChatStore = create<ChatState>()(
@@ -58,14 +59,14 @@ export const useChatStore = create<ChatState>()(
                 }
             },
 
-            createChat: async (uid, chatId, chatName) => {
+            createChat: async (uid, chatId, categories, model) => {
                 try {
                     const response = await fetch(`https://meetmap.up.railway.app/create/chat/${uid}/${chatId}`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ chatName }),
+                        body: JSON.stringify({ categories, model }),
                     });
                     if (response.ok) {
                         // После успешного создания чата, можно обновить список чатов
@@ -75,6 +76,28 @@ export const useChatStore = create<ChatState>()(
                     }
                 } catch (error) {
                     console.error('Ошибка при создании чата:', error);
+                }
+            },
+
+            deleteChat: async (uid, chatId) => {
+                try {
+                    const response = await fetch(`https://meetmap.up.railway.app/delete/Chat/${uid}/${chatId}`, {
+                        method: 'DELETE',
+                    });
+                    if (response.ok) {
+                        // После успешного удаления чата, обновляем список чатов
+                        const updatedChats = get().chats.filter(chat => chat.chatId !== chatId);
+                        set({ chats: updatedChats });
+
+                        // Также удаляем сообщения этого чата из состояния
+                        const updatedMessages = { ...get().messages };
+                        delete updatedMessages[chatId];
+                        set({ messages: updatedMessages });
+                    } else {
+                        console.error(`Ошибка при удалении чата: ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error('Ошибка при удалении чата:', error);
                 }
             },
 
@@ -104,7 +127,7 @@ export const useChatStore = create<ChatState>()(
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({ messages: [message] }),
+                        body: JSON.stringify(message),
                     });
                     if (response.ok) {
                         // После успешной отправки сообщения, можно обновить список сообщений
@@ -123,7 +146,7 @@ export const useChatStore = create<ChatState>()(
             },
         }),
         {
-            name: 'chat-store', 
+            name: 'chat-store',
             partialize: (state) => ({
                 uid: state.uid,
                 chats: state.chats,

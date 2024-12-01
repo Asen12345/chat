@@ -14,16 +14,38 @@ const MapComponent: React.FC<MapComponentProps> = ({ address }) => {
     const setUserAddress = useChatStore((state) => state.setUserAddress);
     const userAddress = useChatStore((state) => state.userAddress);
 
+    // Функция для обратного геокодирования
+    const reverseGeocode = async (coords: [number, number]): Promise<string | null> => {
+        const apiKey = 'eb69c8ca-0f70-4db1-965c-dcd6a2c802fd';
+        const geocodeUrl = `https://geocode-maps.yandex.ru/1.x/?apikey=${apiKey}&format=json&geocode=${coords[1]},${coords[0]}`;
+
+        try {
+            const response = await fetch(geocodeUrl);
+            const data = await response.json();
+            const address = data.response.GeoObjectCollection.featureMember[0].GeoObject.metaDataProperty.GeocoderMetaData.text;
+            return address || null;
+        } catch (error) {
+            console.error('Ошибка обратного геокодирования:', error);
+            return null;
+        }
+    };
+
     // Получение геолокации пользователя
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                (position) => {
+                async (position) => {
                     const { latitude, longitude } = position.coords;
                     const userCoords: [number, number] = [latitude, longitude];
                     setCenter(userCoords);
                     setUserLocation(userCoords);
                     setPlacemark(userCoords);
+
+                    // Обратное геокодирование для получения адреса
+                    const address = await reverseGeocode(userCoords);
+                    if (address) {
+                        setUserAddress(address);
+                    }
                 },
                 (error) => {
                     console.error('Ошибка получения геолокации:', error);
@@ -65,9 +87,8 @@ const MapComponent: React.FC<MapComponentProps> = ({ address }) => {
 
         if (address && address !== '') {
             fetchCoords();
-            setUserAddress(address);
         }
-    }, [address, setUserAddress]);
+    }, [address]);
 
     // Дополнительный эффект для обновления карты при изменении userAddress из хранилища
     useEffect(() => {
