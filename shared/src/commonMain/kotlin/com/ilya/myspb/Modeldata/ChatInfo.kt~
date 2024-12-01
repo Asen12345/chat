@@ -1,0 +1,9 @@
+package com.ilya.myspb.Modeldata
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class ChatInfo(
+    val chatId: String,
+    val chatName: String
+)

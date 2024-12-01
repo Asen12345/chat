@@ -9,19 +9,25 @@
     <application
         android:allowBackup="false"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        android:icon="@mipmap/ic_launcher"
+        android:label="MYSPB">
+        <activity
+            android:name=".ChatwithBot.ChatwithBoot"
+            android:exported="false"
+            android:label="@string/title_activity_chatwith_boot"
+            android:theme="@style/Theme.MySPB" />
         <activity
             android:name=".Media.MediaActivity"
             android:exported="false"
             android:label="@string/title_activity_media"
             android:theme="@style/Theme.MeetMap" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -38,6 +44,6 @@
             android:largeHeap="true"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" />
-
     </application>
-</manifest> 
+
+</manifest>

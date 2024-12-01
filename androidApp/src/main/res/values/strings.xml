@@ -38,6 +38,12 @@
     <string name="title_activity_media">MediaActivity</string>
     <string name="enter_location">Enter location</string>
     <string name="Visittime">Visit time</string>
+    <string name="title_activity_chatwith_boot">ChatwithBoot</string>
+    <string name="turist">Я турист</string>
+    <string name="citenzin">Я живу в городе</string>
+    <string name="NewChat">Новый чат</string>
+    <string name="AIMap">Карты с AI</string>
+
 
 
 

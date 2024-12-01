@@ -101,7 +101,33 @@ object PreferenceHelper {
 
 
 
+    class PreferencesManager(context: Context) {
 
+        // Инициализация SharedPreferences
+        private val sharedPreferences: SharedPreferences =
+            context.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+
+        // Метод для сохранения строки по ключу
+        fun saveString(key: String, value: String) {
+            sharedPreferences.edit().apply {
+                putString(key, value)
+                apply()  // Асинхронное сохранение
+            }
+        }
+
+        // Метод для получения строки по ключу
+        fun getString(key: String): String? {
+            return sharedPreferences.getString(key, null)
+        }
+
+        // Метод для удаления записи по ключу
+        fun removeString(key: String) {
+            sharedPreferences.edit().apply {
+                remove(key)
+                apply()
+            }
+        }
+    }
 
 
 

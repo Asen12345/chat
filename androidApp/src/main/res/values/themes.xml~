@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="Theme.MeetMap" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Другие настройки -->
+    </style>
+
+    <style name="Theme.CodeWithFriends" parent="Theme.MaterialComponents.Light.NoActionBar" />
+
+    <style name="NoAnimation" parent="Theme.CodeWithFriends">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+    <style name="Theme.MySPB" parent="android:Theme.Material.Light.NoActionBar" />
+
+</resources>

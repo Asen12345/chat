@@ -244,7 +244,7 @@ class Map_Activity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolyli
 
         val locationAutoCompleteTextView = findViewById<AutoCompleteTextView>(R.id.locationAutoCompleteTextView)
         val findButton = findViewById<ImageView>(R.id.findButton)
-        val media = findViewById<ImageView>(R.id.social)
+
         val Plot_route = findViewById<ImageButton>(R.id.RoutingButton)
 
         addAllMarkers(Openmarkers_map)
@@ -254,10 +254,6 @@ class Map_Activity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolyli
             startActivity(intent)
         }*/
 
-        media.setOnClickListener {
-            val intent = Intent(this, MediaActivity::class.java)
-            startActivity(intent)
-        }
 
 
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line)

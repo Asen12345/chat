@@ -103,6 +103,7 @@ import com.ilya.codewithfriends.presentation.sign_in.SignInState
 import com.ilya.codewithfriends.presentation.sign_in.SignInViewModel
 import com.ilya.codewithfriends.presentation.sign_in.UserData
 import com.ilya.myspb.Greeting
+import com.ilya.myspb.android.ChatwithBot.ChatwithBoot
 import com.ilya.nordmap.ui.theme.ComposeGoogleSignInCleanArchitectureTheme
 import com.ilya.nordmap.ui.theme.NordMapTheme
 import com.ilya.reaction.logik.PreferenceHelper.removeUserKey
@@ -367,7 +368,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun toshear(userData: UserData?) {
         if (userData?.username != null) {
-            val intent = Intent(this@MainActivity, Map_Activity::class.java)
+            val intent = Intent(this@MainActivity, ChatwithBoot::class.java)
             startActivity(intent)
         }
     }

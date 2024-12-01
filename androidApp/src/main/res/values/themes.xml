@@ -24,4 +24,6 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
+    <style name="Theme.MySPB" parent="android:Theme.Material.Light.NoActionBar" />
+
 </resources>

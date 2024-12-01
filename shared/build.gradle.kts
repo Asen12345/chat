@@ -29,10 +29,22 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            //put your multiplatform dependencies here
+            implementation("io.ktor:ktor-client-core:2.3.0")
+            implementation("io.ktor:ktor-client-serialization:2.3.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
+        }
+
+
+
+        val androidMain by getting {
+            dependencies {
+                // Для Android
+                implementation("io.ktor:ktor-client-android:2.3.0")
+            }
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+
         }
     }
 }

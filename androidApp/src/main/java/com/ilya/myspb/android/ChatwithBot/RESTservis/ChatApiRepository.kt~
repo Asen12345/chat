@@ -1,0 +1,39 @@
+package com.ilya.myspb.android.ChatwithBot.RESTservis
+
+import com.ilya.myspb.android.ChatwithBot.Interface.ChatApiService
+import com.ilya.myspb.android.ChatwithBot.ModelData.ChatMessage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+// Объект для работы с API
+object ChatApiRepository {
+    private const val BASE_URL = "https://meetmap.up.railway.app/"
+
+    private val apiService: ChatApiService by lazy {
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ChatApiService::class.java)
+    }
+
+    // Функция для получения списка сообщений
+    suspend fun fetchMessages(uid: String, database: String): List<ChatMessage>? {
+        return withContext(Dispatchers.IO) {
+            try {
+                val response = apiService.getMessages(uid, database)
+                if (response.isSuccessful) {
+                    response.body() // Возвращаем список сообщений
+                } else {
+                    println("Error: ${response.errorBody()?.string()}")
+                    null
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
+        }
+    }
+}
